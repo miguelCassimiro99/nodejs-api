@@ -1,6 +1,7 @@
 class Tabelas {
     init(conexao) {
         this.conexao = conexao;
+<<<<<<< HEAD
         this.criarAtendimentos();
     }
 
@@ -15,6 +16,11 @@ class Tabelas {
             console.log("Tabela atendimentos criada com sucesso");
         });
     }
+=======
+    }
+
+    criarAtendimentos() {}
+>>>>>>> develop
 }
 
 module.exports = new Tabelas();

@@ -13,7 +13,7 @@ class Tabelas {
             if (erro) {
                 console.log(erro);
             } else {
-                console.log("Tabela atendimentos criada com sucesso");
+                console.log("Tabela atendimentos criada/encontrada com sucesso");
             }
         });
     }

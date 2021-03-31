@@ -11,8 +11,7 @@ module.exports = (app) => {
 
         // chama o model atendimento para utilizar o método adiciona
         // passando como parametro o atendimento (conteúdo do body)
-        Atendimento.adiciona(atendimento);
-        res.send("Post Rota Atendimentos");
+        Atendimento.adiciona(atendimento, res);
     });
 };
 

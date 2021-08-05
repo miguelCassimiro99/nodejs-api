@@ -1,9 +1,36 @@
 const fs = require('fs')
+const path = require('path')
+
+module.exports = (caminho, nomeArquivo, callbackImagemCriada) => {
+
+    const tiposValidos = ['jpg', 'png', 'jpeg']
+    const tipo = path.extname(caminho)
+    const tipoEhValido = tiposValidos.indexOf(tipo.substring(1)) !== -1
+
+    if (!tipoEhValido) {
+        const erro = "Tipo é inválido"
+        console.log('Erro! Tipo Inválido')
+        callbackImagemCriada(erro)
+
+    } else {
+        const novoCaminho = `./assets/imagens/${nomeArquivo}${tipo}`
+
+        fs.createReadStream(caminho)
+            .pipe(fs.createWriteStream(novoCaminho))
+            .on('finish', () => callbackImagemCriada(false, novoCaminho))
+    }
+
+}
 
 
-fs.createReadStream('./assets/hantaro.jpg')
-    .pipe(fs.createWriteStream('./assets/hantaro-stream.jpg'))
-    .on('finish', () => console.log('imagem escrita com sucesso'))
+
+
+
+
+// File Stream ==> Indicated
+// createReadStrem: used to handle with file Stream
+// pipe: transform the read-stream on a write-stream to handle with
+
 
 
 // trabalhando com buffer
